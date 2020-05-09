@@ -23,24 +23,26 @@ def initBoard():
     return board
 
 def isEnd(board):
-    if board[1] == board[2] == board[3]:
+    if board[1] == board[2] == board[3] != ' ':
         return board[1]
-    elif board[4] == board[5] == board[6]:
+    elif board[4] == board[5] == board[6] != ' ':
         return board[4]
-    elif board[7] == board[8] == board[9]:
+    elif board[7] == board[8] == board[9] != ' ':
         return board[7]
-    elif board[1] == board[4] == board[7]:
+    elif board[1] == board[4] == board[7] != ' ':
         return board[1]
-    elif board[2] == board[5] == board[8]:
+    elif board[2] == board[5] == board[8] != ' ':
         return board[2]
-    elif board[3] == board[6] == board[9]:
+    elif board[3] == board[6] == board[9] != ' ':
         return board[3]
-    elif board[1] == board[5] == board[9]:
+    elif board[1] == board[5] == board[9] != ' ':
         return board[1]
-    elif board[3] == board[5] == board[7]:
+    elif board[3] == board[5] == board[7] != ' ':
         return board[3]
     elif freeSpaces == []:
         return 'Tie'
+    else:
+        return 'No'
 
 freeSpaces = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 def isFree(space):
@@ -109,7 +111,12 @@ def playerMove(board):
         print("It's a tie!")
         return None
     return board
-
+a = initBoard()
+a[3] = 'X'
+a[5] = 'O'
+a[6] = 'X'
+a[9] = 'X'
+print('here' + isEnd(a))
 while True:
     print('Welcome to Tic-Tac-Toe!')
     board = initBoard()
