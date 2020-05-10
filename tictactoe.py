@@ -55,7 +55,7 @@ def computerMove(board):
     if isFree(5):
         play = 5
     else:
-        play = freeSpaces[0]
+        play = random.choice(freeSpaces)
     canWin = False
     for space in freeSpaces:
         newBoardO = board.copy()
