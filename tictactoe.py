@@ -56,17 +56,21 @@ def computerMove(board):
         play = 5
     else:
         play = freeSpaces[0]
+    canWin = False
     for space in freeSpaces:
         newBoardO = board.copy()
         newBoardO[space] = 'O'
         if isEnd(newBoardO) == 'O':
             play = space
+            canWin = True
             break
-        newBoardX = board.copy()
-        newBoardX[space] = 'X'
-        if isEnd(newBoardX) == 'X':
-            play = space
-            break
+    if canWin == False:
+        for space in freeSpaces:
+            newBoardX = board.copy()
+            newBoardX[space] = 'X'
+            if isEnd(newBoardX) == 'X':
+                play = space
+                break
     print('Computer chooses space ' + str(play))
     freeSpaces.remove(play)
     board[play] = 'O'
